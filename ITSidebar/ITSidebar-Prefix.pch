@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'ITSidebar' target in the 'ITSidebar' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
