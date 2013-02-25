@@ -29,7 +29,15 @@
 @property (strong, nonatomic) id target;
 @property (nonatomic) SEL action;
 
+// Customisation
+@property (nonatomic) NSSize cellSize;
+@property (nonatomic) NSColor *backgroundColor;
+@property (nonatomic) NSScrollerKnobStyle scrollerKnobStyle;
+@property (nonatomic) ITSidebarItemCell *selectedItem;
+@property (nonatomic) int selectedIndex;
 @property (nonatomic) BOOL allowsEmptySelection;
+
++ (Class)sidebarItemCellClass;
 
 // Add/Remove Cells
 - (ITSidebarItemCell *)addItemWithImage:(NSImage *)image target:(id)target action:(SEL)action;
@@ -43,15 +51,5 @@
 // Select Cells
 - (void)selectItemAtIndex:(int)index;
 - (void)deselectAllItems;
-
-// Customisation
-- (void)setCellSize:(NSSize)cellSize;
-- (void)setBackgroundColor:(NSColor *)backgroundColor;
-- (void)setScrollerKnobStyle:(NSScrollerKnobStyle)knobStyle;
-
-- (ITSidebarItemCell *)selectedItem;
-- (int)selectedIndex;
-
-+ (Class)sidebarItemCellClass;
 
 @end
