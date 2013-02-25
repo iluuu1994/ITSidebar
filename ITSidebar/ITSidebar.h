@@ -49,7 +49,6 @@
 - (void)removeRow:(NSInteger)row;
 
 // Select Cells
-- (void)selectItemAtIndex:(int)index;
 - (void)deselectAllItems;
 
 @end

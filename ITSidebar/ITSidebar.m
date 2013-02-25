@@ -147,7 +147,7 @@
 }
 
 - (void)selectNeighbourItemWithValue:(int)value {
-    [self selectItemAtIndex:self.selectedIndex + value];
+    self.selectedIndex = self.selectedIndex + value;
 }
 
 #pragma mark Cells
@@ -186,7 +186,7 @@
     
     // If empty selection is not allowed, we select the first item
     if (!allowsEmptySelection && [self selectedIndex] == -1) {
-        [self selectItemAtIndex:0];
+        self.selectedIndex = 0;
     }
 }
 
