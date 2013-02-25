@@ -1,9 +1,19 @@
 ITSidebar
 =========
 
-`ITSidebar` is a control for Mac OS X similar to the one of Sparrow
+`ITSidebar` is a very lightweight control for Mac OS X.
+You can create sidebars similar to the one of Sparrow.
 
 <img src="http://www.ilijatovilo.ch/github/ITSidebar.png" alt="" />
+
+Why would I want to use this?
+-----------------------------
+
+`ITSidebar` is:
+
+- Highly customizable
+- Lightning-fast
+- Completly free to use
 
 Usage
 -----
@@ -24,7 +34,7 @@ Please use your own images for the button cells.
 ### Use in a project
 
 Make sure to check out the sample project.
-First, drag a NSScrollView onto your window.
+First, drag a `NSScrollView` onto your window.
 Then, select the document view, and set its custom class to `ITSidebar`.
 
 Now you can connect an outlet to it, and use the following methods:
