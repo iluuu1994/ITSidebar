@@ -88,8 +88,14 @@
     [self addSubview:self.matrix];
 }
 #pragma mark Scroll View
+- (NSColor *)backgroundColor {
+    return [[self enclosingScrollView] backgroundColor];
+}
 - (void)setBackgroundColor:(NSColor *)backgroundColor {
     [[self enclosingScrollView] setBackgroundColor:backgroundColor];
+}
+- (NSScrollerKnobStyle)scrollerKnobStyle {
+    return [[self enclosingScrollView] scrollerKnobStyle];
 }
 - (void)setScrollerKnobStyle:(NSScrollerKnobStyle)knobStyle {
     [[self enclosingScrollView] setScrollerKnobStyle:knobStyle];
@@ -143,7 +149,19 @@
 - (void)selectNeighbourItemWithValue:(int)value {
     [self selectItemAtIndex:self.selectedIndex + value];
 }
-- (void)selectItemAtIndex:(int)index {
+
+#pragma mark Cells
+- (ITSidebarItemCell *)selectedItem {
+    return self.matrix.selectedCell;
+}
+- (void)setSelectedItem:(ITSidebarItemCell *)selectedItem {
+    self.selectedIndex = [[self.matrix cells] indexOfObject:selectedItem];
+}
+- (int)selectedIndex {
+    ITSidebarItemCell *cell = [self selectedItem];
+    return (int)[self.matrix.cells indexOfObject:cell];
+}
+- (void)setSelectedIndex:(int)index {
     if (index >= 0 && index < self.matrix.cells.count) {
         [self.matrix selectCell:[self.matrix.cells objectAtIndex:index]];
         
@@ -151,17 +169,11 @@
         [self matrixCallback:self];
     }
 }
-
-#pragma mark Cells
-- (ITSidebarItemCell *)selectedItem {
-    return self.matrix.selectedCell;
-}
-- (int)selectedIndex {
-    ITSidebarItemCell *cell = [self selectedItem];
-    return (int)[self.matrix.cells indexOfObject:cell];
-}
 + (NSSize)defaultCellSize {
     return NSMakeSize(62, 62);
+}
+- (NSSize)cellSize {
+    return [self.matrix cellSize];
 }
 - (void)setCellSize:(NSSize)cellSize {
     [self.matrix setCellSize:cellSize];
