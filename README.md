@@ -49,7 +49,7 @@ Now you can connect an outlet to it, and use the following methods:
 	- (void)removeRow:(NSInteger)row;
 	
 	// Select Cells
-	- (void)selectItemAtIndex:(int)index;
+	- (void)setSelectedIndex:(int)selectedIndex;
 	- (void)deselectAllItems;
 	
 	// Customisation
