@@ -4,7 +4,7 @@ ITSidebar
 `ITSidebar` is a very lightweight control for Mac OS X.
 You can create sidebars similar to the one of Sparrow.
 
-<img src="http://www.ilijatovilo.ch/github/ITSidebar.png" alt="" />
+![](./ITSidebar.png)
 
 Why would I want to use this?
 -----------------------------
