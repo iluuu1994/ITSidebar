@@ -252,14 +252,8 @@
             [self.target performSelector:self.action withObject:self];
         );
     } else {
-        // Very ugly hack, because again the action is not invoked by the NSButtonCell
-        // NSButtonCell's performClick: causes some unexpected behaviour.
-        // If anyone finds another way of doing this, let me know over Github ;)
-        if ([self.selectedItem.target respondsToSelector:self.selectedItem.action]) {
-            SuppressPerformSelectorLeakWarning(
-                [self.selectedItem.target performSelector:self.selectedItem.action withObject:self.selectedItem];
-            );
-        }
+            //Ideally NSInvocation needs to be usd here but this is just as good (for now) :)
+                [self.selectedItem.target performSelector:self.selectedItem.action withObject:self.selectedItem afterDelay:0];
     }
 }
 - (void)setTarget:(id)target {
