@@ -248,9 +248,10 @@
 #pragma mark ITSidebar Target Action
 - (IBAction)matrixCallback:(id)sender {
     if ([self.target respondsToSelector:self.action]) {
+        //Ideally NSInvocation needs to be usd here but, afterDelay:0 is just as good (for now) :)
             [self.target performSelector:self.action withObject:self afterDelay:0];
     } else {
-            //Ideally NSInvocation needs to be usd here but this is just as good (for now) :)
+        //Ideally NSInvocation needs to be usd here but, afterDelay:0 is just as good (for now) :)
                 [self.selectedItem.target performSelector:self.selectedItem.action withObject:self.selectedItem afterDelay:0];
     }
 }
