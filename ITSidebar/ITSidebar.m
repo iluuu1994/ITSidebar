@@ -157,12 +157,12 @@
 - (void)setSelectedItem:(ITSidebarItemCell *)selectedItem {
     self.selectedIndex = [[self.matrix cells] indexOfObject:selectedItem];
 }
-- (int)selectedIndex {
+- (NSUInteger)selectedIndex {
     ITSidebarItemCell *cell = [self selectedItem];
     return (int)[self.matrix.cells indexOfObject:cell];
 }
-- (void)setSelectedIndex:(int)index {
-    if (index >= 0 && index < self.matrix.cells.count) {
+- (void)setSelectedIndex:(NSUInteger)index {
+    if (index < self.matrix.cells.count) {
         [self.matrix selectCell:[self.matrix.cells objectAtIndex:index]];
         
         // Again, no action
