@@ -68,8 +68,8 @@
 // ****************************************** We can use
 // NSMatrix Target Action
 - (IBAction)sidebarChanged:(ITSidebar *)sender {
-    NSLog(@"%@: %d", [sender selectedItem], [sender selectedIndex]);
-    [self.label setStringValue:[NSString stringWithFormat:@"%d", [sender selectedIndex]]];
+    NSLog(@"%@: %lu", [sender selectedItem], (unsigned long)[sender selectedIndex]);
+    [self.label setStringValue:[NSString stringWithFormat:@"%lu", (unsigned long)[sender selectedIndex]]];
 }
 
 // ****************************************** OOOOOOOR

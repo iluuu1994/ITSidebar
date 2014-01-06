@@ -157,12 +157,12 @@
 - (void)setSelectedItem:(ITSidebarItemCell *)selectedItem {
     self.selectedIndex = [[self.matrix cells] indexOfObject:selectedItem];
 }
-- (int)selectedIndex {
+- (NSUInteger)selectedIndex {
     ITSidebarItemCell *cell = [self selectedItem];
     return (int)[self.matrix.cells indexOfObject:cell];
 }
-- (void)setSelectedIndex:(int)index {
-    if (index >= 0 && index < self.matrix.cells.count) {
+- (void)setSelectedIndex:(NSUInteger)index {
+    if (index < self.matrix.cells.count) {
         [self.matrix selectCell:[self.matrix.cells objectAtIndex:index]];
         
         // Again, no action
@@ -248,18 +248,11 @@
 #pragma mark ITSidebar Target Action
 - (IBAction)matrixCallback:(id)sender {
     if ([self.target respondsToSelector:self.action]) {
-        SuppressPerformSelectorLeakWarning(
-            [self.target performSelector:self.action withObject:self];
-        );
+        //Ideally NSInvocation needs to be usd here but, afterDelay:0 is just as good (for now) :)
+            [self.target performSelector:self.action withObject:self afterDelay:0];
     } else {
-        // Very ugly hack, because again the action is not invoked by the NSButtonCell
-        // NSButtonCell's performClick: causes some unexpected behaviour.
-        // If anyone finds another way of doing this, let me know over Github ;)
-        if ([self.selectedItem.target respondsToSelector:self.selectedItem.action]) {
-            SuppressPerformSelectorLeakWarning(
-                [self.selectedItem.target performSelector:self.selectedItem.action withObject:self.selectedItem];
-            );
-        }
+        //Ideally NSInvocation needs to be usd here but, afterDelay:0 is just as good (for now) :)
+                [self.selectedItem.target performSelector:self.selectedItem.action withObject:self.selectedItem afterDelay:0];
     }
 }
 - (void)setTarget:(id)target {

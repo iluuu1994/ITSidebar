@@ -34,7 +34,7 @@
 @property (nonatomic) NSColor *backgroundColor;
 @property (nonatomic) NSScrollerKnobStyle scrollerKnobStyle;
 @property (nonatomic) ITSidebarItemCell *selectedItem;
-@property (nonatomic) int selectedIndex;
+@property (nonatomic) NSUInteger selectedIndex;
 @property (nonatomic) BOOL allowsEmptySelection;
 
 + (Class)sidebarItemCellClass;
