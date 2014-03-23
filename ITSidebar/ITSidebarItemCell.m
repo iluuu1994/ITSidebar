@@ -56,11 +56,7 @@
     
     [NSGraphicsContext saveGraphicsState];
     {
-        NSShadow *shadow = [NSShadow new];
-        [shadow setShadowOffset:NSMakeSize(0, -1)];
-        [shadow setShadowColor:[NSColor blackColor]];
-        [shadow setShadowBlurRadius:3.0];
-        [shadow set];
+        [[self shadow] set];
         
         NSRect imgRect = NSInsetRect(frame, ( NSWidth(frame) -[image size].width)/2.0, ( NSHeight(frame) -[image size].height)/2.0);
         [image drawInRect:imgRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
