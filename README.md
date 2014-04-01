@@ -6,6 +6,15 @@ You can create sidebars similar to the one of Sparrow.
 
 ![](./ITSidebar.png)
 
+v2.0?
+-----
+
+Since many people found this repository useful, and it's quite outdated,
+I decided to rewrite the control from the ground to use Core Animation.
+
+That's what this branch is for.
+
+
 Why would I want to use this?
 -----------------------------
 
