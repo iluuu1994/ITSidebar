@@ -55,6 +55,10 @@
     
     return self;
 }
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (id)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -69,6 +73,14 @@
 }
 - (void)initialise {
     [self addMatrix];
+}
+- (void)initialiseScrollView {
+    [[self enclosingScrollView] setDrawsBackground:YES];
+    
+    // Style scroll view
+    [[self enclosingScrollView] setBorderType:NSNoBorder];
+    [self setBackgroundColor:kDefaultBackgroundColor];
+    [self setScrollerKnobStyle:kDefaultScrollerKnobStyle];
     
     [[self enclosingScrollView] setDrawsBackground:YES];
     
@@ -78,14 +90,6 @@
                                              selector:@selector(resizeMatrix)
                                                  name:NSViewBoundsDidChangeNotification
                                                object:clipView];
-}
-- (void)initialiseScrollView {
-    [[self enclosingScrollView] setDrawsBackground:YES];
-    
-    // Style scroll view
-    [[self enclosingScrollView] setBorderType:NSNoBorder];
-    [self setBackgroundColor:kDefaultBackgroundColor];
-    [self setScrollerKnobStyle:kDefaultScrollerKnobStyle];
 }
 - (void)addMatrix {
     self.matrix = [[NSMatrix alloc] initWithFrame:[self frame]
