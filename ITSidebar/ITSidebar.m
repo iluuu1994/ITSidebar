@@ -55,6 +55,10 @@
     
     return self;
 }
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (id)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
