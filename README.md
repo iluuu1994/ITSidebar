@@ -1,6 +1,14 @@
 ITSidebar
 =========
 
+`ITSidebar` is outdated and thus shouldn't be used in new projects anymore.
+It heavily depends on `NSMatrix` and `NSCell` which are both soon to be deprecated.
+Just use an `NSTableView` or [JNWCollectionView](https://github.com/jwilling/JNWCollectionView).
+
+I'm planning on making a **v2.0** of `ITSidebar` but that might take a while.
+
+-----------
+
 `ITSidebar` is a very lightweight control for Mac OS X.
 You can create sidebars similar to the one of Sparrow.
 
